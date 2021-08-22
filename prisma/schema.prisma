@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Foo {
+  uuid String  @id @db.Uuid @default(uuid())
+  bars Bar[]
+
+  @@map("foo")
+}
+
+model Bar {
+  id      Int    @id @default(autoincrement()) @db.Integer
+  fooUuid String @db.Uuid
+  foo     Foo    @relation(fields: [fooUuid], references: [uuid])
+}
