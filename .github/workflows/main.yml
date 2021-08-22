@@ -29,4 +29,8 @@ jobs:
       - uses: actions/setup-node@v2.4.0
       - run: npm ci
       - run: npm run prisma
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
       - run: npm start
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
