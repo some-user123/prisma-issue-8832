@@ -34,3 +34,7 @@ jobs:
       - run: npm start
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          QUERY_BATCH_SIZE: 32766
+      - run: npm start
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
